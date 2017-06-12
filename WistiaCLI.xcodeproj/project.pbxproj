@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		32E8637F1EEEF9C0008B5B33 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E8637E1EEEF9C0008B5B33 /* main.swift */; };
+		32EB791C1EEEFA380027983E /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EB791B1EEEFA380027983E /* Media.swift */; };
+		32EB791E1EEEFA460027983E /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EB791D1EEEFA460027983E /* Project.swift */; };
+		32EB79221EEEFCA50027983E /* DataAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EB79211EEEFCA50027983E /* DataAPI.swift */; };
+		32EB79241EEF006D0027983E /* ConsoleIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EB79231EEF006D0027983E /* ConsoleIO.swift */; };
+		32EB79281EEF01070027983E /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EB79271EEF01070027983E /* API.swift */; };
+		32EB792A1EEF01100027983E /* StatsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EB79291EEF01100027983E /* StatsAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +31,12 @@
 /* Begin PBXFileReference section */
 		32E8637B1EEEF9C0008B5B33 /* WistiaCLI */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = WistiaCLI; sourceTree = BUILT_PRODUCTS_DIR; };
 		32E8637E1EEEF9C0008B5B33 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		32EB791B1EEEFA380027983E /* Media.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
+		32EB791D1EEEFA460027983E /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
+		32EB79211EEEFCA50027983E /* DataAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataAPI.swift; sourceTree = "<group>"; };
+		32EB79231EEF006D0027983E /* ConsoleIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsoleIO.swift; sourceTree = "<group>"; };
+		32EB79271EEF01070027983E /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		32EB79291EEF01100027983E /* StatsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,9 +69,39 @@
 		32E8637D1EEEF9C0008B5B33 /* WistiaCLI */ = {
 			isa = PBXGroup;
 			children = (
+				32EB791A1EEEFA290027983E /* Model */,
 				32E8637E1EEEF9C0008B5B33 /* main.swift */,
+				32EB79261EEF00990027983E /* API */,
+				32EB79251EEF00920027983E /* Console */,
 			);
 			path = WistiaCLI;
+			sourceTree = "<group>";
+		};
+		32EB791A1EEEFA290027983E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				32EB791B1EEEFA380027983E /* Media.swift */,
+				32EB791D1EEEFA460027983E /* Project.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		32EB79251EEF00920027983E /* Console */ = {
+			isa = PBXGroup;
+			children = (
+				32EB79231EEF006D0027983E /* ConsoleIO.swift */,
+			);
+			name = Console;
+			sourceTree = "<group>";
+		};
+		32EB79261EEF00990027983E /* API */ = {
+			isa = PBXGroup;
+			children = (
+				32EB79211EEEFCA50027983E /* DataAPI.swift */,
+				32EB79271EEF01070027983E /* API.swift */,
+				32EB79291EEF01100027983E /* StatsAPI.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -119,7 +161,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32EB79241EEF006D0027983E /* ConsoleIO.swift in Sources */,
+				32EB792A1EEF01100027983E /* StatsAPI.swift in Sources */,
+				32EB79221EEEFCA50027983E /* DataAPI.swift in Sources */,
+				32EB791C1EEEFA380027983E /* Media.swift in Sources */,
 				32E8637F1EEEF9C0008B5B33 /* main.swift in Sources */,
+				32EB79281EEF01070027983E /* API.swift in Sources */,
+				32EB791E1EEEFA460027983E /* Project.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,6 +313,7 @@
 				32E863841EEEF9C0008B5B33 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
