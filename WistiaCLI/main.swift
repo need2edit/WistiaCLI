@@ -38,8 +38,6 @@ func printRoutes() {
 func parseResponse(code: Int, data: Data, option: OptionType) -> Codable? {
     
     let decoder = JSONDecoder()
-    let string = String.init(data: data, encoding: .utf8)
-    print(string)
     
     if code == 401 || code == 404 {
         let error = try? decoder.decode(ErrorEnvelope.self, from: data)
@@ -47,9 +45,16 @@ func parseResponse(code: Int, data: Data, option: OptionType) -> Codable? {
     } else {
         switch option {
         case .projects:
-            return try? decoder.decode([Project].self, from: data)
+//            print(String.init(data: data, encoding: .utf8))
+            do {
+                return try decoder.decode([Project].self, from: data)
+            } catch {
+                print(error)
+                return nil
+            }
+            
         case .project:
-            return try? decoder.decode(Project.self, from: data)
+            return try? decoder.decode(ProjectDetails.self, from: data)
         case .medias:
             return try? decoder.decode([Media].self, from: data)
         case .media:
@@ -110,12 +115,27 @@ class WistiaCLI {
         //3
         let (option, value) = consoleIO.getOption(argument.substring(from: argument.characters.index(argument.startIndex, offsetBy: 1)))
         //4
+        print(option)
+        if option == .projects {
+            print("Listing Projects...")
+            guard let output = blockingGETRequest(option: option, value: value) else { return }
+            print(output)
+        }
         
-        let info = CommandLine.arguments[2]
-        let identifierInfo = consoleIO.getOption(info.substring(from: info.characters.index(info.startIndex, offsetBy: 0)))
-        
-        guard let output = blockingGETRequest(option: option, value: identifierInfo.value) else { return }
-        print(output)
+        if option == .project {
+            let info = CommandLine.arguments[2]
+            let identifierInfo = consoleIO.getOption(info.substring(from: info.characters.index(info.startIndex, offsetBy: 0)))
+            guard let output = blockingGETRequest(option: option, value: identifierInfo.value) else { return }
+        } else {
+            guard let output = blockingGETRequest(option: option, value: value) else { return }
+            print(output ?? "No projects.")
+            if let projects = output as? [Project] {
+                for project  in projects {
+                    print(project.name)
+                    print(project.mediaCount)
+                }
+            }
+        }
         
         print("Argument count: \(argCount) Option: \(option) value: \(value)")
     }

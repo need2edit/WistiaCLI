@@ -11,19 +11,26 @@ import Foundation
 struct Project: Codable {
     let id: Int
     let name: String
-    let description: String
+    let description: String?
     let mediaCount: Int
-    let created: Date
-    let updated: Date
-    let hashedId: String
+    let created: String
+    let updated: String
+    let hashedId: String?
     let anonymousCanUpload: Bool
     let anonymousCanDownload: Bool
-    let isPublic: Bool
+    let publicId: String
+}
+
+struct ProjectDetails: Codable {
+    let id: Int
+    let name: String
+    let description: String
+    let mediaCount: Int
+    let created: String
+    let updated: String
+    let hashed_Id: String
+    let anonymousCanUpload: Bool
+    let anonymousCanDownload: Bool
     let publicId: String
     let medias: [Media]?
 }
-
-extension Project: CustomStringConvertible {
-    
-}
-
